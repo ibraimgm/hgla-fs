@@ -20,7 +20,11 @@ func NewServer(db *sqlx.DB, r *gin.Engine) *Server {
 		r:  r,
 	}
 
-	// setup routes
+	// required routes
+	r.GET("/prices", s.getPrices)
+	r.GET("/prices/:id", s.getPricesByID)
+
+	// extra routes
 	r.GET("/product/:id", s.getProduct)
 	r.POST("/product", s.insertProduct)
 	r.PUT("/product/:id", s.updateProduct)
@@ -31,8 +35,8 @@ func NewServer(db *sqlx.DB, r *gin.Engine) *Server {
 
 // Run starts the server, akin to the Run method of
 // the gin engine
-func (s *Server) Run() error {
-	if err := s.r.Run(); err != nil {
+func (s *Server) Run(port string) error {
+	if err := s.r.Run(port); err != nil {
 		return err
 	}
 

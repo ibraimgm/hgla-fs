@@ -50,6 +50,7 @@ func withServer(t *testing.T, tests []httpTest, fn func(t *testing.T, test httpT
 
 		//  setup routes
 		r := gin.Default()
+		gin.SetMode(gin.ReleaseMode) // used to reduce the output on errors
 		api.NewServer(db, r)
 
 		for i := range tests {

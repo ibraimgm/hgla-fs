@@ -74,7 +74,7 @@ func main() {
 	// run the app server
 	server := api.NewServer(db, r)
 
-	if err := server.Run(); err != nil {
+	if err := server.Run(":" + port); err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
 	}
