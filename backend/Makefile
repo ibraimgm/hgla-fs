@@ -35,3 +35,11 @@ generated_swagger/docs.go: $(SOURCES)
 
 pkged.go: $(MIGRATION_SOURCES)
 	pkger -include github.com/ibraimgm/backend:/migrations
+
+clean:
+	rm -rf $(BIN_NAME)
+	rm -rf *.ok
+	rm -rf generated_swagger
+	rm -rf pkged.go
+
+.PHONY: all build clean
