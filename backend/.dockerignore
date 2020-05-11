@@ -1,0 +1,8 @@
+.vscode
+.build-cache
+
+*.ok
+pkged.go
+generated_swagger
+
+/backend

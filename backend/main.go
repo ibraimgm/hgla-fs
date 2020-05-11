@@ -28,7 +28,7 @@ func main() {
 	// also, print the values found, for debgging purposes
 	driver := readEnv("DB_DRIVER", "mysql")
 	dbURL := readEnv("DB_URL", "hg:hg@/hg?parseTime=true")
-	port := readEnv("PORT", "8080")
+	port := readEnv("APP_PORT", "8080")
 	serverName := readEnv("SERVER_NAME", "localhost")
 	swaggerDoc := fmt.Sprintf("http://%s:%s/swagger/doc.json", serverName, port)
 	swaggerIndex := fmt.Sprintf("http://%s:%s/swagger/index.html", serverName, port)
@@ -36,7 +36,7 @@ func main() {
 	fmt.Println("Using the following configuration values:")
 	fmt.Println("  DB_DRIVER   = ", driver)
 	fmt.Println("  DB_URL      = ", dbURL)
-	fmt.Println("  PORT        = ", port)
+	fmt.Println("  APP_PORT    = ", port)
 	fmt.Println("  SERVER_NAME = ", serverName)
 	fmt.Println()
 	fmt.Println("- Swagger doc location: ", swaggerDoc)
