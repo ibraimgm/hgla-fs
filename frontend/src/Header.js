@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import svgHostgatorLogo from './images/hostgator-logo.svg';
 import svgIconCheck from './images/icon-check.svg';
 import svgBtnDown from './images/btn-down.svg';
+import svgLeft from './images/left-image.svg';
+import svgRight from './images/right-image.svg';
 import mq from './mq';
 
 const Logo = styled.div`
@@ -11,11 +13,19 @@ const Logo = styled.div`
   width: 198px;
   height: 35px;
   background: transparent url('${svgHostgatorLogo}') 0% 0% no-repeat padding-box;
+
+  ${mq.desktop} {
+    margin-left: 400px;
+  }
 `;
 
 const BlueBox = styled.div`
   background-color: #1d5297;
   position: relative;
+
+  ${mq.desktop} {
+    min-height: 300px;
+  }
 `;
 
 const Title = styled.p`
@@ -26,7 +36,7 @@ const Title = styled.p`
   color: #b9d0ef;
 
   ${mq.tablet} {
-    margin-top: ;
+    padding-top: 60px;
   }
 `;
 
@@ -36,6 +46,12 @@ const Content = styled.p`
   padding: 0 10px;
   letter-spacing: 0px;
   color: #ffffff;
+
+  ${mq.tablet} {
+    position: relative;
+    max-width: 600px;
+    left: calc(50% - 300px);
+  }
 `;
 
 const Features = styled.div`
@@ -76,21 +92,57 @@ const ButtonDown = styled.div`
   height: 52px;
 `;
 
+const LeftPane = styled.div`
+  display: none;
+  background: url('${svgLeft}') no-repeat;
+  background-size: contain;
+  width: calc(484px * 1);
+  height: calc(353px * 1);
+  position: absolute;
+  top: 30px;
+  left: 69px;
+
+  ${mq.desktop} {
+    display: block;
+  }
+`;
+
+const RightPane = styled.div`
+  display: none;
+  background: url('${svgRight}') no-repeat;
+  background-size: contain;
+  width: calc(438px / 1);
+  height: calc(346px / 1);
+  position: absolute;
+  top: 30px;
+  right: 69px;
+
+  ${mq.desktop} {
+    display: block;
+  }
+`;
+
+const CenterPane = styled.div``;
+
 const Header = () => (
   <div>
     <Logo />
     <BlueBox>
-      <Title>Hospedagem de Sites</Title>
-      <Content>
-        Tenha uma hospedagem de sites estável e evite perder visitantes
-        diariamente
-      </Content>
-      <Features>
-        <p>99,9% de disponibilidade: seu site sempre no ar</p>
-        <p>Suporte 24h, todos os dias</p>
-        <p>Painel de Controle cPanel</p>
-      </Features>
-      <ButtonDown />
+      <LeftPane />
+      <CenterPane>
+        <Title>Hospedagem de Sites</Title>
+        <Content>
+          Tenha uma hospedagem de sites estável e evite perder visitantes
+          diariamente
+        </Content>
+        <Features>
+          <p>99,9% de disponibilidade: seu site sempre no ar</p>
+          <p>Suporte 24h, todos os dias</p>
+          <p>Painel de Controle cPanel</p>
+        </Features>
+        <ButtonDown />
+      </CenterPane>
+      <RightPane />
     </BlueBox>
   </div>
 );
