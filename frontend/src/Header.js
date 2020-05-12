@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import svgHostgatorLogo from './images/hostgator-logo.svg';
 import svgIconCheck from './images/icon-check.svg';
 import svgBtnDown from './images/btn-down.svg';
+import mq from './mq';
 
 const Logo = styled.div`
   margin-top: 8px;
@@ -23,6 +24,10 @@ const Title = styled.p`
   text-align: center;
   letter-spacing: 1.6px;
   color: #b9d0ef;
+
+  ${mq.tablet} {
+    margin-top: ;
+  }
 `;
 
 const Content = styled.p`
@@ -44,6 +49,21 @@ const Features = styled.div`
     background: url('${svgIconCheck}') no-repeat left top;
     margin: 10px 30px 10px 50px;
     padding-left: 24px;
+  }
+
+  ${mq.tablet} {
+    text-align:center;
+
+    p {
+      display: inline;
+      margin: 10px;
+    }
+
+    p:first-child::after {
+      content: "\\A";
+      white-space: pre;
+      color:red;
+    }
   }
 `;
 

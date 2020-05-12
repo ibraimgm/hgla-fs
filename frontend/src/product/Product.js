@@ -4,7 +4,14 @@ import styled from '@emotion/styled';
 import svgProductIcon from '../images/product-icon.svg';
 import PriceBox from './PriceBox';
 import FeatureList from './FeatureList';
+import mq from '../mq';
 
+// IMPORTANT: added a fake margin on the tablet layout to force
+// each item in its own line. The challenge didn'ts pecify how
+// exactly this should be handled, so I'm guessing this should
+// stay centered, like the XD prototype.
+//
+// Note that the fake margin is removed from the desktop layout
 const Wrapper = styled.div`
   background: #ff6a17 0% 0% no-repeat padding-box;
   border: 1px solid #dfecff;
@@ -12,6 +19,15 @@ const Wrapper = styled.div`
   padding: 9px 0;
   margin: 20px 0;
   max-width: 268px;
+
+  ${mq.tablet} {
+    max-width: 331px;
+    margin: 20px 30px;
+  }
+
+  ${mq.desktop} {
+    margin: 20px 0;
+  }
 `;
 
 const Box = styled.div`
