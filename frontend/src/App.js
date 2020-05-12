@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import Header from './Header';
 import RadioGroup from './RadioGroup';
-import Product from './product/Product';
+import ProductList from './product/ProductList';
 
 const Frame = styled.div`
   background: #f1f6fb 0% 0% no-repeat padding-box;
@@ -30,6 +30,8 @@ function App() {
     discount: 40,
   };
 
+  const products = [product, product, product];
+
   return (
     <React.Fragment>
       <Header />
@@ -39,7 +41,7 @@ function App() {
           options={['3 anos', '1 ano', '1 mês']}
           selected={'3 anos'}
         />
-        <Product product={product} />
+        <ProductList products={products} />
       </Frame>
     </React.Fragment>
   );
