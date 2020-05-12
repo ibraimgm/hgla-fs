@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { ReactComponent as svgProductIcon } from '../images/product-icon.svg';
+import svgProductIcon from '../images/product-icon.svg';
 import PriceBox from './PriceBox';
 import FeatureList from './FeatureList';
 
@@ -21,7 +21,13 @@ const Box = styled.div`
   padding: 40px 0 20px 0;
 `;
 
-const ProductIcon = styled(svgProductIcon)``;
+const ProductIcon = styled.div`
+  background: url('${svgProductIcon}') no-repeat;
+  width: 42px;
+  height: 49px;
+  position: relative;
+  left: calc(50% - 21px);
+`;
 
 const ProductName = styled.p`
   font: Bold 26px/26px Montserrat;

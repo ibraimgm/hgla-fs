@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import svgHostgatorLogo from './images/hostgator-logo.svg';
 import svgIconCheck from './images/icon-check.svg';
-import { ReactComponent as svgBtnDown } from './images/btn-down.svg';
+import svgBtnDown from './images/btn-down.svg';
 
 const Logo = styled.div`
   margin-top: 8px;
@@ -47,7 +47,8 @@ const Features = styled.div`
   }
 `;
 
-const ButtonDown = styled(svgBtnDown)`
+const ButtonDown = styled.div`
+  background: url('${svgBtnDown}') no-repeat;
   position: absolute;
   left: calc(50% - 23px);
   top: calc(100% - 23px);
