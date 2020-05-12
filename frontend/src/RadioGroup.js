@@ -19,14 +19,14 @@ const radioCss = () => css`
 
   li {
     display: inline-block;
-    padding: 10px 16px;
+    padding: 10px 14px;
 
     span {
       border: 0;
       background: url('${svgRadioOff}') no-repeat padding-box;
       width: 18px;
       height: 18px;
-      padding-right: 20px;
+      padding-right: 18px;
       padding-left: 5px;
     }
   }

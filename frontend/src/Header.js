@@ -51,8 +51,8 @@ const ButtonDown = styled(svgBtnDown)`
   position: absolute;
   left: calc(50% - 23px);
   top: calc(100% - 23px);
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
 `;
 
 const Header = () => (
