@@ -44,7 +44,7 @@ const radioCss = () => css`
     }
   }
 
-  li:first-child {
+  li:first-of-type {
     position: relative;
     left: -2px;
   }

@@ -75,7 +75,7 @@ const Features = styled.div`
       margin: 10px;
     }
 
-    p:first-child::after {
+    p:first-of-type::after {
       content: "\\A";
       white-space: pre;
       color:red;

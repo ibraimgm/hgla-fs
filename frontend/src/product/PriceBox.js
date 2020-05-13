@@ -19,7 +19,7 @@ const PricePanel = styled.div`
 
   .label {
     display: block;
-    margin: 6px 0;
+    margin: 8px 0 12px 0;
   }
 
   .priceC {
