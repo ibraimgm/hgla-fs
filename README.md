@@ -1,5 +1,12 @@
 # HostGator Latin America - Full Stack Challenge
 
+- [HostGator Latin America - Full Stack Challenge](#hostgator-latin-america---full-stack-challenge)
+  - [Introduction](#introduction)
+  - [Backend notes](#backend-notes)
+  - [Frontend notes](#frontend-notes)
+  - [Running locally](#running-locally)
+  - [Running with docker](#running-with-docker)
+
 ## Introduction
 
 This is my take on the HostGaor Latin America Full Stack challenge.
@@ -8,7 +15,7 @@ If you're only interest in seeing the end result, and have `docker` and `docker-
 
 If you're interested on what was done, and wasn't, why some decisions were made, etc, keep reading the next sections.
 
-## Backend
+## Backend notes
 
 As requested, the backend application should run connecting to a MySQL database, and the DB schema should be inferred from the sample JSON data given with the challenge. As such, I used [DB Diagram](https://dbdiagram.io/home) to create the following model (you can also view it on [this link](https://dbdiagram.io/d/5eb94ac039d18f5553ff0433)):
 
@@ -60,7 +67,7 @@ It is important to note that the Swagger docs and the packing of the migrations 
 
 The `start.sh` and `wait-for-it.sh` scripts aren't needed to run the application; they're only used on docker, to wait for the MySQL container to run and be able to accept connections.
 
-## Frontend
+## Frontend notes
 
 The frontend is a pretty standard [CRA Application](https://github.com/facebook/create-react-app). Most of the code and images is directly inside the `src` directory. The *"PascalCase.js* files refers to React components, while the *cameCase.js* files refer to 'plain' javascript files (as in "non-react components"). Of these, the most interesting ones are `RadioGroup.js` (because it has an accompaining `.test.js` file) and `App.js` that has both state and redux logic and represents the main application window.
 
