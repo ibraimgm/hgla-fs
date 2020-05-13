@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 
 import Header from './Header';
 import RadioGroup from './RadioGroup';
 import ProductList from './product/ProductList';
+import * as product from './redux/modules/product';
 
 const Frame = styled.div`
   background: #f1f6fb 0% 0% no-repeat padding-box;
@@ -21,16 +23,12 @@ const PayText = styled.p`
 `;
 
 function App() {
-  const product = {
-    name: 'Plano M',
-    valueA: 647.64,
-    valueB: 453.35,
-    valueC: 12.59,
-    valueD: 174.48,
-    discount: 40,
-  };
+  const dispatch = useDispatch();
+  const products = useSelector(product.getProducts);
 
-  const products = [product, product, product];
+  useEffect(() => {
+    dispatch(product.loadProducts());
+  }, [dispatch]);
 
   return (
     <React.Fragment>

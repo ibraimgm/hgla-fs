@@ -59,7 +59,7 @@ const Separator = styled.hr`
 `;
 
 const Product = ({ product }) => {
-  const { name, ...productValues } = product;
+  const { name, prices } = product;
 
   return (
     <Wrapper>
@@ -67,7 +67,7 @@ const Product = ({ product }) => {
         <ProductIcon />
         <ProductName>{name}</ProductName>
         <Separator />
-        <PriceBox {...productValues} />
+        <PriceBox {...prices} />
         <Separator />
         <FeatureList />
       </Box>
