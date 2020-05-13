@@ -28,6 +28,8 @@ const monthsByLabel = {
   '1 mês': 1,
 };
 
+const PROMO_CODE = 'PROMOHG40';
+
 function App() {
   const [selected, setSelected] = useState('3 anos');
   const dispatch = useDispatch();
@@ -37,6 +39,18 @@ function App() {
   useEffect(() => {
     dispatch(product.loadProducts());
   }, [dispatch]);
+
+  // handles the 'Contrate Agora' button
+  const buyNowHandler = (product) => {
+    // gets the billing cycle name
+    const months = monthsByLabel[selected];
+    const { name: cycleName } = product.basePrice[months];
+
+    const url = `?a=add&pid=${product.id}&billingcycle=${cycleName}&promocode=${PROMO_CODE}`;
+
+    // just log to demonstrate that the correct url was built
+    console.log(url);
+  };
 
   return (
     <React.Fragment>
@@ -53,7 +67,7 @@ function App() {
             }
           }}
         />
-        <ProductList products={products} />
+        <ProductList products={products} onBuyNow={buyNowHandler} />
       </Frame>
     </React.Fragment>
   );

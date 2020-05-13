@@ -58,16 +58,15 @@ const Separator = styled.hr`
   margin: 30px 0;
 `;
 
-const Product = ({ product }) => {
+const Product = ({ product, onBuyNow }) => {
   const { name, prices } = product;
-
   return (
     <Wrapper>
       <Box>
         <ProductIcon />
         <ProductName>{name}</ProductName>
         <Separator />
-        <PriceBox {...prices} />
+        <PriceBox {...prices} onBuyNow={onBuyNow} />
         <Separator />
         <FeatureList />
       </Box>

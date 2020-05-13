@@ -9,10 +9,14 @@ const Container = styled.div`
   justify-content: space-around;
 `;
 
-const ProductList = ({ products }) => (
+const ProductList = ({ products, onBuyNow }) => (
   <Container>
     {products.map((product, idx) => (
-      <Product key={idx} product={product} />
+      <Product
+        key={idx}
+        product={product}
+        onBuyNow={() => onBuyNow && onBuyNow(product)}
+      />
     ))}
   </Container>
 );

@@ -47,6 +47,7 @@ const Currency = (props) => (
 
 const BuyNow = styled.a`
   display: inline-block;
+  cursor: pointer;
   background: #ff6a17 0% 0% no-repeat padding-box;
   border-radius: 26px;
   font: Bold 22px/27px Montserrat;
@@ -86,7 +87,7 @@ const Discount = styled.div`
   }
 `;
 
-const PriceBox = ({ valueA, valueB, valueC, valueD, discount }) => (
+const PriceBox = ({ valueA, valueB, valueC, valueD, discount, onBuyNow }) => (
   <React.Fragment>
     <PricePanel>
       <Currency className="priceA" value={valueA} />
@@ -97,7 +98,7 @@ const PriceBox = ({ valueA, valueB, valueC, valueD, discount }) => (
         /mês*
       </div>
     </PricePanel>
-    <BuyNow>Contrate Agora</BuyNow>
+    <BuyNow onClick={() => onBuyNow && onBuyNow()}>Contrate Agora</BuyNow>
     <FreeDomain>
       1 ano de Domínio Grátis
       <InfoIcon />
