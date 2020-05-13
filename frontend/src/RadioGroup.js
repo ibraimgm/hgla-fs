@@ -20,6 +20,7 @@ const radioCss = () => css`
   li {
     display: inline-block;
     padding: 10px 14px;
+    cursor: pointer;
 
     span {
       border: 0;
@@ -54,14 +55,18 @@ const radioCss = () => css`
   }
 `;
 
-const RadioGroup = ({ options, selected }) => {
+const RadioGroup = ({ options, selected, onClick }) => {
   return (
     <ul css={radioCss}>
       {options.map((opt, idx) => {
         const clsName = opt === selected ? 'selected' : '';
 
         return (
-          <li key={idx} className={clsName}>
+          <li
+            key={idx}
+            className={clsName}
+            onClick={(e) => onClick && onClick(opt)}
+          >
             <span />
             {opt}
           </li>

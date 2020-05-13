@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 
@@ -22,10 +22,18 @@ const PayText = styled.p`
   padding: 50px 0 10px 0;
 `;
 
+const monthsByLabel = {
+  '3 anos': 36,
+  '1 ano': 12,
+  '1 mês': 1,
+};
+
 function App() {
+  const [selected, setSelected] = useState('3 anos');
   const dispatch = useDispatch();
   const products = useSelector(product.getProducts);
 
+  // initial data load
   useEffect(() => {
     dispatch(product.loadProducts());
   }, [dispatch]);
@@ -37,7 +45,13 @@ function App() {
         <PayText>Quero pagar a cada:</PayText>
         <RadioGroup
           options={['3 anos', '1 ano', '1 mês']}
-          selected={'3 anos'}
+          selected={selected}
+          onClick={(clickedText) => {
+            if (clickedText !== selected) {
+              setSelected(clickedText);
+              dispatch(product.calculateValues(monthsByLabel[clickedText]));
+            }
+          }}
         />
         <ProductList products={products} />
       </Frame>
