@@ -6,7 +6,7 @@ const apiURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 const LOAD = 'product/LOAD';
 const CALCULATE = 'product/CALCULATE';
 
-export const getProducts = (state) => state.product.list || [];
+export const getProducts = (state = {}) => (state.product || {}).list || [];
 
 // action to load the products
 export const loadProducts = (initialMonths = 36) => async (dispatch) => {
